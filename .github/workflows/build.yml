@@ -14,7 +14,7 @@ jobs:
       - uses: hpi-swa/setup-smalltalkCI@v1
         with:
           smalltalk-version: ${{ matrix.smalltalk }}
-      - name: Start memcached
+      - name: Start rabbitmq with STOMP plugin enabled 
         run: docker-compose -f rabbitmq-with-stomp-plugin-enabled.yml up -d
       - name: Load Image and Run Tests
         run: smalltalkci -s ${{ matrix.smalltalk }}
