@@ -4,7 +4,7 @@ services:
   rabbit:
     image: rabbitmq:3.8-alpine
     ports: 
-      - 5672:5672
-      - 61613:61613
+      - "5672:5672"
+      - "61613:61613"
     volumes:
-      - .github/workflows/rabbitmq_enabled_plugins:/etc/rabbitmq/enabled_plugins
+      - .rabbitmq_enabled_plugins:/etc/rabbitmq/enabled_plugins
