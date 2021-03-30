@@ -15,7 +15,9 @@ jobs:
         with:
           smalltalk-version: ${{ matrix.smalltalk }}
       - name: Start rabbitmq with STOMP plugin enabled 
-        run: docker-compose -f rabbitmq-with-stomp-plugin-enabled.yml up -d
+        run: docker-compose -f .github/workflows/docker-compose.yml up -d
+      - name: Status of rabbitmq
+        run: rabbitmq-diagnostics status
       - name: Load Image and Run Tests
         run: smalltalkci -s ${{ matrix.smalltalk }}
         env:
